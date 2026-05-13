@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hammerline Auctions</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Live marketplace</p>
+          <h1>Hammerline Auctions</h1>
+          <p class="lede">Bid on curated collectibles in real time with transparent pricing, live updates, and a persistent bid history.</p>
+        </div>
+        <div class="hero-panel" aria-label="Auction summary">
+          <span class="status-dot"></span>
+          <div>
+            <strong id="live-count">0 live lots</strong>
+            <span>Server-synced bidding room</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Auction filters">
+        <label class="search-box">
+          <span>Search</span>
+          <input id="search" type="search" placeholder="Camera, watch, chair">
+        </label>
+        <div class="filters" id="filters"></div>
+      </section>
+
+      <section class="content-grid">
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Open lots</p>
+              <h2>Ending soon</h2>
+            </div>
+            <span id="connection" class="connection">Connecting</span>
+          </div>
+          <div id="auction-grid" class="auction-grid"></div>
+        </div>
+
+        <aside class="bid-panel" aria-label="Bid activity">
+          <div class="section-head compact">
+            <div>
+              <p class="eyebrow">Bid desk</p>
+              <h2 id="selected-title">Select a lot</h2>
+            </div>
+          </div>
+
+          <form id="bid-form" class="bid-form">
+            <label>
+              <span>Name</span>
+              <input id="bidder-name" type="text" maxlength="40" placeholder="Your name" required>
+            </label>
+            <label>
+              <span>Bid amount</span>
+              <input id="bid-amount" type="text" inputmode="numeric" pattern="[0-9]*" required>
+            </label>
+            <button type="submit">Place bid</button>
+            <p id="form-message" class="form-message" role="status"></p>
+          </form>
+
+          <div class="history-head">
+            <h3>Bid history</h3>
+            <span id="minimum-bid"></span>
+          </div>
+          <ol id="bid-history" class="bid-history"></ol>
+        </aside>
+      </section>
+    </main>
+
+    <template id="auction-card-template">
+      <article class="auction-card">
+        <button class="card-button" type="button">
+          <img alt="">
+          <div class="card-body">
+            <div class="card-topline">
+              <span class="category"></span>
+              <span class="timer"></span>
+            </div>
+            <h3></h3>
+            <p></p>
+            <div class="price-row">
+              <span>
+                <small>Current bid</small>
+                <strong class="price"></strong>
+              </span>
+              <span class="bid-count"></span>
+            </div>
+          </div>
+        </button>
+      </article>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
