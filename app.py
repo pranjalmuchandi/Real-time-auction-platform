@@ -7,13 +7,16 @@ import queue
 import sqlite3
 import threading
 import time
+import os
 
 
 ROOT = Path(__file__).parent.resolve()
 STATIC_DIR = ROOT / "static"
 DB_PATH = ROOT / "auction.db"
-HOST = "127.0.0.1"
-PORT = 8000
+import os
+
+HOST = "0.0.0.0"
+PORT = int(os.environ.get("PORT", 10000))
 
 events_lock = threading.Lock()
 event_clients = []
