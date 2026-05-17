@@ -17,7 +17,7 @@ HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", 10000))
 
 # Replace with your MongoDB Atlas connection string
-MONGO_URI = mongodb+srv://pranjalmuchandi028:<db_password>@cluster0.q1veocr.mongodb.net/?appName=Cluster0
+MONGO_URI = MONGO_URI = "mongodb+srv://pranjalmuchandi028:auction123@cluster0.q1veocr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 client = MongoClient(MONGO_URI)
 db = client["auctionDB"]
